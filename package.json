@@ -1,0 +1,22 @@
+{
+  "name": "starterpack-ashleyliangg",
+  "version": "1.0.0",
+  "description": "*description*",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dartmouth-cs52-23s/starterpack-ashleyliangg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dartmouth-cs52-23s/starterpack-ashleyliangg/issues"
+  },
+  "homepage": "https://github.com/dartmouth-cs52-23s/starterpack-ashleyliangg#readme",
+  "devDependencies": {
+    "vite": "^4.2.1"
+  }
+}
