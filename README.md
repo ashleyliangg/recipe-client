@@ -1,4 +1,4 @@
-# Title
+# Starter pack
 
 *Starter pack for SA2*
 
