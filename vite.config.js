@@ -7,15 +7,15 @@ import vitePluginFaviconsInject from 'vite-plugin-favicons-inject';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    eslint(),
-    vitePluginFaviconsInject('./src/img/logo.png'),
-  ],
-  css: {
-    postcss: {
-      plugins: [
-        autoprefixer(),
-      ],
+    plugins: [
+        eslint(),
+        vitePluginFaviconsInject('./src/assets/logo.png'),
+    ],
+    css: {
+        postcss: {
+            plugins: [
+                autoprefixer(),
+            ],
+        },
     },
-  },
 });
