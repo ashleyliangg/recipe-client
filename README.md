@@ -2,7 +2,7 @@
 
 *Starter pack for SA2*
 
-[deployed url](http://url-if-deployed-here)
+[https://starterpack-sa2.onrender.com/](https://starterpack-sa2.onrender.com/)
 
 ## What Worked Well
 Following the instructions and figuring out the counter.
