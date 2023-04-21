@@ -9,7 +9,7 @@ import vitePluginFaviconsInject from 'vite-plugin-favicons-inject';
 export default defineConfig({
     plugins: [
         eslint(),
-        vitePluginFaviconsInject('./src/assets/logo.png'),
+        vitePluginFaviconsInject('src/assets/logo.png'),
     ],
     css: {
         postcss: {
