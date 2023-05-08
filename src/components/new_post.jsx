@@ -40,29 +40,31 @@ function NewPost() {
 
   return (
     <div className="new-post">
+      <i onClick={() => navigate('/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left icon-button" />
       <div className="new-post-header">
         <h1>Create a New Post</h1>
-        <button type="button" onClick={() => navigate('/')}>Delete</button>
+        {/* <button type="button" onClick={() => navigate('/')}>Delete</button> */}
       </div>
 
       <div className="new-post-form">
-        <p>
+        <i onClick={() => navigate('/')} role="button" tabIndex="0" aria-label="delete" className="fa-solid fa-trash-can trash icon-button" />
+        <p className="input-names">
           Title
         </p>
-        <input value={newTitle} onChange={onTitleChange} />
-        <p>
+        <input className="form-input" value={newTitle} onChange={onTitleChange} />
+        <p className="input-names">
           Tags
         </p>
-        <input value={newTags} onChange={onTagChange} />
-        <p>
+        <input className="form-input" value={newTags} onChange={onTagChange} />
+        <p className="input-names">
           Img URL
         </p>
-        <input value={newImgURL} onChange={onImgURLChange} />
-        <p>
+        <input className="form-input" value={newImgURL} onChange={onImgURLChange} />
+        <p className="input-names">
           Content
         </p>
-        <input value={newContent} onChange={onContentChange} />
-        <button type="button" onClick={addPost}>Add Post!</button>
+        <input className="form-input" value={newContent} onChange={onContentChange} />
+        <button className="big-button new-button" type="button" onClick={addPost}>Add Post!</button>
       </div>
     </div>
   );

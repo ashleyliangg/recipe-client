@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import { NavLink } from 'react-router-dom';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import { fetchPosts } from '../actions';
 
 function Posts(props) {
@@ -28,18 +29,26 @@ function Posts(props) {
 
   const postItems = posts.map((post) => {
     return (
-      <div key={post.id} className="post-container">
-        <NavLink to={`posts/${post.id}`}>
+      <NavLink className="navlink" to={`posts/${post.id}`}>
+        <div key={post.id} className="post-container">
           <ReactMarkdown className="cover-img">{`![](${post.coverUrl})`}</ReactMarkdown>
-          <div>{post.title}</div>
-          <div>{post.tags}</div>
-        </NavLink>
-      </div>
+          <div className="posts-title">{post.title}</div>
+          <div className="posts-tags">{post.tags}</div>
+        </div>
+      </NavLink>
     );
   });
   return (
-    <div className="posts-container">
-      {postItems}
+    <div>
+      <h1>Animal life!</h1>
+      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 1000: 3 }}>
+        <Masonry className="posts-container">
+          {postItems}
+        </Masonry>
+      </ResponsiveMasonry>
+      {/* <div className="posts-container">
+        {postItems}
+      </div> */}
     </div>
   );
 }

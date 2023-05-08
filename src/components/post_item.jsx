@@ -70,45 +70,57 @@ function PostItem() {
     if (!isEditing) {
       return (
         <div>
-          <button type="button" onClick={() => navigate('/')}>Back</button>
-          <ReactMarkdown>{`![](${post.coverUrl})`}</ReactMarkdown>
-          <h1>{post.title}</h1>
-          <p>{post.tags}</p>
-          <ReactMarkdown>{post.content}</ReactMarkdown>
-          <div className="bottom-icons">
-            <button type="button" onClick={deleteP}>Delete</button>
-            <button type="button" onClick={() => setEditing(!isEditing)}>Edit</button>
-            {/* <i onClick={() => dispatch(deletePost(postID, navigate))} role="button" tabIndex="0" aria-label="delete" className="fa-solid fa-trash-can" /> */}
-            {/* <i onClick={() => setEditing(!isEditing)} role="button" tabIndex="0" aria-label="edit" className="fa-solid fa-pencil" /> */}
+          <div className="top-icons">
+            <i onClick={() => navigate('/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left back-button" />
+            <i onClick={() => setEditing(!isEditing)} role="button" tabIndex="0" aria-label="edit" className="fa-solid fa-pencil" />
+          </div>
+          <div className="post-item">
+            <h1>{post.title}</h1>
+            <p className="tags">{post.tags}</p>
+            <ReactMarkdown>{`![](${post.coverUrl})`}</ReactMarkdown>
+            <ReactMarkdown className="post-content">{post.content}</ReactMarkdown>
+            <button className="big-button del-button" type="button" onClick={deleteP}>
+              ✖️ Delete Post ✖️
+            </button>
           </div>
         </div>
       );
     } else {
       return (
         <div>
-          <p>
-            Title
-          </p>
-          <input value={localTitle} onChange={onTitleChange} />
-          <p>
-            Tags
-          </p>
-          <input value={localTags} onChange={onTagChange} />
-          <p>
-            Img URL
-          </p>
-          <input value={localImgURL} onChange={onImgURLChange} />
-          <p>
-            Content
-          </p>
-          <input value={localContent} onChange={onContentChange} />
-          <button type="button" onClick={update}>Update</button>
+          <div className="top-icons">
+            <i onClick={() => navigate('/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left back-button" />
+            <i onClick={update} role="button" tabIndex="0" aria-label="edit" className="fa-solid fa-circle-check" />
+          </div>
+          <div className="post-item">
+            <p className="input-names">
+              Title
+            </p>
+            <input className="form-input" value={localTitle} onChange={onTitleChange} />
+            <p className="input-names">
+              Tags
+            </p>
+            <input className="form-input" value={localTags} onChange={onTagChange} />
+            <p className="input-names">
+              Img URL
+            </p>
+            <input className="form-input" value={localImgURL} onChange={onImgURLChange} />
+            <p className="input-names">
+              Content
+            </p>
+            <input className="form-input" value={localContent} onChange={onContentChange} />
+            <button className="big-button del-button" type="button" onClick={deleteP}>
+              ✖️ Delete Post ✖️
+            </button>
+          </div>
         </div>
       );
     }
   }
   return (
-    renderPost()
+    <div>
+      {renderPost()}
+    </div>
   );
 }
 
