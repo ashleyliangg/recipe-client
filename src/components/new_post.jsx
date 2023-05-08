@@ -43,7 +43,6 @@ function NewPost() {
       <i onClick={() => navigate('/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left icon-button" />
       <div className="new-post-header">
         <h1>Create a New Post</h1>
-        {/* <button type="button" onClick={() => navigate('/')}>Delete</button> */}
       </div>
 
       <div className="new-post-form">
@@ -63,7 +62,15 @@ function NewPost() {
         <p className="input-names">
           Content
         </p>
-        <input className="form-input" value={newContent} onChange={onContentChange} />
+        {/* <input className="form-input" value={newContent} onChange={onContentChange} /> */}
+        <textarea
+          name="editing-content"
+          rows="10"
+          cols="1"
+          className="content-input"
+          value={newContent}
+          onChange={onContentChange}
+        />
         <button className="big-button new-button" type="button" onClick={addPost}>Add Post!</button>
       </div>
     </div>

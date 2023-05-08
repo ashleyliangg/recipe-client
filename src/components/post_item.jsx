@@ -72,15 +72,16 @@ function PostItem() {
         <div>
           <div className="top-icons">
             <i onClick={() => navigate('/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left back-button" />
-            <i onClick={() => setEditing(!isEditing)} role="button" tabIndex="0" aria-label="edit" className="fa-solid fa-pencil" />
+            <i onClick={deleteP} role="button" tabIndex="0" aria-label="delete" className="fa-solid fa-trash-can trash icon-button" />
+            {/* <i onClick={() => setEditing(!isEditing)} role="button" tabIndex="0" aria-label="edit" className="fa-solid fa-pencil" /> */}
           </div>
           <div className="post-item">
             <h1>{post.title}</h1>
             <p className="tags">{post.tags}</p>
-            <ReactMarkdown>{`![](${post.coverUrl})`}</ReactMarkdown>
+            <ReactMarkdown className="post-cover">{`![](${post.coverUrl})`}</ReactMarkdown>
             <ReactMarkdown className="post-content">{post.content}</ReactMarkdown>
-            <button className="big-button del-button" type="button" onClick={deleteP}>
-              ✖️ Delete Post ✖️
+            <button className="big-button upd-button" type="button" onClick={() => setEditing(!isEditing)}>
+              ✏️ Update Post ✏️
             </button>
           </div>
         </div>
@@ -108,9 +109,17 @@ function PostItem() {
             <p className="input-names">
               Content
             </p>
-            <input className="form-input" value={localContent} onChange={onContentChange} />
-            <button className="big-button del-button" type="button" onClick={deleteP}>
-              ✖️ Delete Post ✖️
+            <textarea
+              name="editing-content"
+              rows="10"
+              cols="1"
+              className="content-input"
+              value={localContent}
+              onChange={onContentChange}
+            />
+            {/* <input className="form-input" value={localContent} onChange={onContentChange} /> */}
+            <button className="big-button upd-button" type="button" onClick={update}>
+              ⭐ Save Updates ⭐
             </button>
           </div>
         </div>
