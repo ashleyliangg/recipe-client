@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
@@ -7,7 +8,6 @@ import { fetchPosts } from '../actions';
 
 function Posts(props) {
   const dispatch = useDispatch();
-  // const [loadedState, setLoadedState] = useState(false);
 
   const posts = useSelector((state) => (state.posts.all));
 
@@ -15,25 +15,30 @@ function Posts(props) {
     dispatch(fetchPosts());
   }, []);
 
-  // useEffect(() => {
-  //   posts = useSelector((state) => (state.posts.all));
-  // }, [loadedState]);
-
-  // useEffect(() => {
-  //   const fetch = async () => {
-  //     await dispatch(fetchPosts());
-  //     setLoadedState(true);
-  //   };
-  //   fetch();
-  // }, []);
-
   const postItems = posts.map((post) => {
+    function postTags() {
+      if (post.tags[0] !== '') {
+        return (
+          post.tags.map((tag, i) => {
+            if (tag) {
+              return (<p key={i} className="posts-tag">{tag}</p>);
+            } else {
+              return (<p key={i} />);
+            }
+          })
+        );
+      } else {
+        return (<p />);
+      }
+    }
     return (
-      <NavLink className="navlink" to={`posts/${post.id}`}>
-        <div key={post.id} className="post-container">
+      <NavLink key={post.id} className="navlink" to={`posts/${post.id}`}>
+        <div className="post-container">
           <ReactMarkdown className="cover-img">{`![](${post.coverUrl})`}</ReactMarkdown>
           <div className="posts-title">{post.title}</div>
-          <div className="posts-tags">{post.tags}</div>
+          <div className="posts-tags">
+            {postTags()}
+          </div>
         </div>
       </NavLink>
     );

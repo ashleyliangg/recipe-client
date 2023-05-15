@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,17 +39,21 @@ function PostItem() {
     const fetch = async () => {
       await dispatch(fetchPost(postID));
       setLoadedState(true); // or some followup
-      // console.log(loadedState);
     };
     fetch();
   }, []);
 
   useEffect(() => {
     setLocalTitle(post.title);
-    setLocalTags(post.tags);
-    setLocalImgURL(post.coverUrl);
-    setLocalContent(post.content);
-    console.log(post);
+    if (post.tags) {
+      setLocalTags(post.tags.join(' '));
+    }
+    if (post.coverUrl) {
+      setLocalImgURL(post.coverUrl);
+    }
+    if (post.content) {
+      setLocalContent(post.content);
+    }
   }, [loadedState]);
 
   const update = async () => {
@@ -66,6 +71,23 @@ function PostItem() {
     dispatch(deletePost(postID, navigate));
   };
 
+  function postTags() {
+    if (loadedState) {
+      if (post.tags[0] !== '') {
+        return (
+          post.tags.map((tag, i) => {
+            if (tag) {
+              return (<p key={i} className="posts-tag">{tag}</p>);
+            } else {
+              return (<p key={i} />);
+            }
+          })
+        );
+      }
+    }
+    return (<p />);
+  }
+
   function renderPost() {
     if (!isEditing) {
       return (
@@ -77,7 +99,10 @@ function PostItem() {
           </div>
           <div className="post-item">
             <h1>{post.title}</h1>
-            <p className="tags">{post.tags}</p>
+            {/* <p className="tags">{post.tags}</p> */}
+            <div className="posts-tags">
+              {postTags()}
+            </div>
             <ReactMarkdown className="post-cover">{`![](${post.coverUrl})`}</ReactMarkdown>
             <ReactMarkdown className="post-content">{post.content}</ReactMarkdown>
             <button className="big-button upd-button" type="button" onClick={() => setEditing(!isEditing)}>

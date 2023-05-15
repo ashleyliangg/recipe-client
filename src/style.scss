@@ -126,11 +126,19 @@ ul {
 	text-align: center;
 }
 
-.posts-tags {
+.posts-tag {
 	font-size: 0.8rem;
-	color: gray;
+	color: rgb(114, 113, 113);
 	margin: 5px 0;
 	font-family: 'Cutive Mono', monospace;
+	background-color: rgb(227, 227, 227);
+	border-radius: 5px;
+	margin: 0 5px;
+	padding: 5px;
+}
+
+.posts-tags {
+	display: flex;
 }
 
 .post-cover {
