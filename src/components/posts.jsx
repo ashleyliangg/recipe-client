@@ -17,8 +17,10 @@ function Posts(props) {
 
   const postItems = posts.map((post) => {
     function postTags() {
+      // check if empty array
       if (post.tags[0] !== '') {
         return (
+        // check to make sure no extra spaces
           post.tags.map((tag, i) => {
             if (tag) {
               return (<p key={i} className="posts-tag">{tag}</p>);

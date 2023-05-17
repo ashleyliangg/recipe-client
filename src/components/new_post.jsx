@@ -52,7 +52,7 @@ function NewPost() {
         </p>
         <input className="form-input" value={newTitle} onChange={onTitleChange} />
         <p className="input-names">
-          Tags
+          Tags (one word each)
         </p>
         <input className="form-input" value={newTags} onChange={onTagChange} />
         <p className="input-names">

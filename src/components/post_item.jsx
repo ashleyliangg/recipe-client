@@ -73,8 +73,10 @@ function PostItem() {
 
   function postTags() {
     if (loadedState) {
+      // check if empty array
       if (post.tags[0] !== '') {
         return (
+        // check to make sure no extra spaces
           post.tags.map((tag, i) => {
             if (tag) {
               return (<p key={i} className="posts-tag">{tag}</p>);
@@ -124,7 +126,7 @@ function PostItem() {
             </p>
             <input className="form-input" value={localTitle} onChange={onTitleChange} />
             <p className="input-names">
-              Tags
+              Tags (one word each)
             </p>
             <input className="form-input" value={localTags} onChange={onTagChange} />
             <p className="input-names">
