@@ -17,29 +17,22 @@ import { fetchPosts } from '../actions';
 
 const posts = (postType, nameFilter, tagFilter) => {
 	const filteredPosts = postType.filter((post) => {
-		// Check if the post's title contains the given title substring
-		// Case insensitive search
 		let titleMatch = true;
 		if (nameFilter) {
 			titleMatch = post.title.toLowerCase().includes(nameFilter.toLowerCase());
 		}
 
-		// Check if all required tags are included in the post's tags
-		// Assumes tags in both post.tags and requiredTags are normalized to lower case
 		let tagsMatch = true;
 		if (tagFilter) {
 			tagsMatch = tagFilter.every((requiredTag) => post.tags.map((postTag) => postTag.toLowerCase()).includes(requiredTag.toLowerCase()));
 		}
 
-		// Return true if both titleMatch and tagsMatch are true, false otherwise
 		return titleMatch && tagsMatch;
 	});
 	const postItems = filteredPosts.map((post) => {
 		function postTags() {
-			// check if empty array
 			if (post.tags[0] !== '') {
 				return (
-					// check to make sure no extra spaces
 					post.tags.map((tag, i) => {
 						if (tag) {
 							return (<p key={i} className="posts-tag">{tag}</p>);
@@ -104,6 +97,13 @@ function Recipes() {
 		setNameFilter(tempNameFilter);
 	};
 
+	const handleClear = () => {
+		setTagFilter([]);
+		setNameFilter('');
+		setTempNameFilter('');
+		setTempTagFilter('');
+	};
+
 	const handleTagSearch = () => {
 		const tags = [];
 		tempTagFilter.split(' ').forEach((tag) => {
@@ -141,7 +141,7 @@ function Recipes() {
 					<i className="fa-solid fa-filter" /> Tags
 				</button>
 			</div>
-			<button type="button" className="clear-button search-container sans-serif" onClick={handleTagSearch}>
+			<button type="button" className="clear-button search-container sans-serif" onClick={handleClear}>
 				Clear All Filters
 			</button>
 		</div>
