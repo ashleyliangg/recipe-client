@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { createPost } from '../actions';
 
-function NewPost() {
+function NewRecipe() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -48,11 +48,11 @@ function NewPost() {
       <div className="new-post-form">
         <i onClick={() => navigate('/posts/')} role="button" tabIndex="0" aria-label="delete" className="fa-solid fa-trash-can trash icon-button" />
         <p className="input-names">
-          Title
+          Name of Dish
         </p>
         <input className="form-input" value={newTitle} onChange={onTitleChange} />
         <p className="input-names">
-          Tags (one word each)
+          Tags (space between tags)
         </p>
         <input className="form-input" value={newTags} onChange={onTagChange} />
         <p className="input-names">
@@ -60,7 +60,7 @@ function NewPost() {
         </p>
         <input className="form-input" value={newImgURL} onChange={onImgURLChange} />
         <p className="input-names">
-          Content
+          Recipe
         </p>
         {/* <input className="form-input" value={newContent} onChange={onContentChange} /> */}
         <textarea
@@ -71,10 +71,10 @@ function NewPost() {
           value={newContent}
           onChange={onContentChange}
         />
-        <button className="big-button new-button" type="button" onClick={addPost}>Add Post!</button>
+        <button className="big-button new-button" type="button" onClick={addPost}>Add Recipe!</button>
       </div>
     </div>
   );
 }
 
-export default NewPost;
+export default NewRecipe;

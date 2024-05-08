@@ -26,7 +26,7 @@ h1 {
 	font-family: "Cormorant Garamond", serif;
 	font-weight: 100;
 	font-size: 3rem;
-	color: rgb(74, 44, 37)
+	color: rgb(74, 44, 37);
 }
 
 .tags {
@@ -58,7 +58,7 @@ h1 {
 	padding: 2rem 4rem;
   margin: 10px 10px;
 	font-family: "Oswald", sans-serif;
-	font-weight: 100;
+	font-weight: 200;
   font-size: 25px;
   cursor: pointer;
   background-color: #f8f8f8;
@@ -68,6 +68,10 @@ h1 {
   &:hover {
     background-color: #e7e7e7;
   }
+}
+
+.sans-serif {
+	font-family: 'Comme', sans-serif;
 }
 
 nav {
@@ -167,15 +171,18 @@ ul {
 	font-size: 1.5rem;
 	color: black;
 	font-family: 'Comme', sans-serif;
+	// font-family: "Oswald", sans-serif;
 	text-align: center;
 }
 
 .posts-tag {
 	font-size: 0.8rem;
-	color: rgb(114, 113, 113);
+	color: rgb(182, 145, 108);;
 	margin: 5px 0;
-	font-family: 'Cutive Mono', monospace;
-	background-color: rgb(227, 227, 227);
+	// font-family: 'Cutive Mono', monospace;
+	// font-family: "Oswald", sans-serif;
+	font-family: 'Comme', sans-serif;
+	background-color: rgb(240, 234, 227);
 	border-radius: 5px;
 	margin: 0 5px;
 	padding: 5px;
@@ -193,10 +200,11 @@ ul {
 
 .icon-button {
 	font-size: 1.5rem;
+	color: rgb(74, 44, 37)
 }
 
 .post-item {
-	background-color: rgb(220, 244, 203);
+	background-color: #a5e1a0b3;
 	border-radius: 10px;
 	padding: 1rem;
 	display: flex;
@@ -223,7 +231,8 @@ i {
 }
 
 .new-post-form {
-	background-color: rgb(220, 244, 203);
+	// background-color: rgb(220, 244, 203);
+	background-color: #a5e1a0b3;
 	border-radius: 10px;
 	padding: 1rem;
 	display: flex;
@@ -268,6 +277,7 @@ i {
   cursor:pointer;
   box-shadow:0 16px 38px -12px rgba(125, 125, 125, 0.56), 0 4px 25px 0px rgba(125, 125, 125, 0.2), 0 8px 10px -5px rgba(125, 125, 125, 0.2);
 	font-weight:500;
+	border: none;
 }
 .big-button:hover {
   background-position: top center; /* change the direction of the change here */
@@ -276,16 +286,17 @@ i {
 }
 
 .new-button {
-	background-image: linear-gradient(to right, #83cf70 0%, #ebf563 51%, #83cf70 100%);
+	background-image: linear-gradient(to right, #cebbac 0%, #b38c76 51%, #cebbac 100%);
 }
 
 .upd-button {
-	background-image: linear-gradient(to right, #fa9484 0%, #e49c5d 51%, #fa9484 100%);
+	background-image: linear-gradient(to right, #a5e1a0 0%, #59aa68 51%, #a5e1a0 100%);
 }
 
 .input-names {
 	font-size: 1.5rem;
-	font-family: 'Bubblegum Sans', cursive;
+	// font-family: 'Bubblegum Sans', cursive;
+	font-family: 'Comme', sans-serif;
 }
 
 .search-container {

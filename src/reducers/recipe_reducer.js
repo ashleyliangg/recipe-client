@@ -7,7 +7,7 @@ const initialState = {
 	current: {},
 };
 
-const postsReducer = produce((draftState, action = {}) => {
+const recipeReducer = produce((draftState, action = {}) => {
 	switch (action.type) {
 		case ActionTypes.FETCH_POSTS:
 			draftState.all = action.payload;
@@ -21,4 +21,4 @@ const postsReducer = produce((draftState, action = {}) => {
 	}
 }, initialState);
 
-export default postsReducer;
+export default recipeReducer;

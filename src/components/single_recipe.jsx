@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 import { deletePost, fetchPost, updatePost } from '../actions';
 
-function PostItem() {
+function SingleRecipe() {
   const navigate = useNavigate();
   const { postID } = useParams();
   const dispatch = useDispatch();
@@ -112,7 +112,7 @@ function PostItem() {
       return (
         <div>
           <div className="top-icons">
-            <i onClick={() => navigate('/posts/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left back-button" />
+            <i onClick={() => navigate('/posts/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left back-button icon-button" />
 						<i onClick={favoritePost} role="button" tabIndex="0" className="fa fa-star" aria-label="favorite" style={{ color: localFavorite ? '#FDDA0D' : '#D3D3D3' }} />
             <i onClick={deleteP} role="button" tabIndex="0" aria-label="delete" className="fa-solid fa-trash-can trash icon-button" />
           </div>
@@ -139,11 +139,11 @@ function PostItem() {
           </div>
           <div className="post-item">
             <p className="input-names">
-              Title
+						Name of Dish
             </p>
             <input className="form-input" value={localTitle} onChange={onTitleChange} />
             <p className="input-names">
-              Tags (one word each)
+              Tags (space between tags)
             </p>
             <input className="form-input" value={localTags} onChange={onTagChange} />
             <p className="input-names">
@@ -151,7 +151,7 @@ function PostItem() {
             </p>
             <input className="form-input" value={localImgURL} onChange={onImgURLChange} />
             <p className="input-names">
-              Content
+              Recipe
             </p>
             <textarea
               name="editing-content"
@@ -177,4 +177,4 @@ function PostItem() {
   );
 }
 
-export default PostItem;
+export default SingleRecipe;

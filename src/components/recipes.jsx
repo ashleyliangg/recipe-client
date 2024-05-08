@@ -7,14 +7,12 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import {
 	Box,
 	Tab,
-	// IconButton,
 } from '@mui/material';
 import {
 	TabContext,
 	TabList,
 	TabPanel,
 } from '@mui/lab';
-// import StarIcon from '@mui/icons-material/Star';
 import { fetchPosts } from '../actions';
 
 const posts = (postType, nameFilter, tagFilter) => {
@@ -58,12 +56,9 @@ const posts = (postType, nameFilter, tagFilter) => {
 		return (
 			<NavLink key={post.id} className="navlink" to={`${post.id}`}>
 				<div className="post-container">
-					{/* <IconButton aria-label="favorite" > */}
 					<i className="fa fa-star" aria-label="favorite" style={{ color: post.favorite ? '#FDDA0D' : '#D3D3D3', alignSelf: 'flex-start' }} />
-					{/* <StarIcon style={{ color: post.favorite ? '#FDDA0D' : '#D3D3D3', alignSelf: 'flex-start' }} /> */}
-					{/* </IconButton> */}
 					{post.coverUrl ? <ReactMarkdown className="cover-img">{`![](${post.coverUrl})`}</ReactMarkdown> : null}
-					<div className="posts-title">{post.title}</div>
+					<div className="posts-title sans-serif">{post.title}</div>
 					<div className="posts-tags">
 						{postTags()}
 					</div>
@@ -81,7 +76,7 @@ const posts = (postType, nameFilter, tagFilter) => {
 	);
 };
 
-function Posts() {
+function Recipes() {
 	const dispatch = useDispatch();
 
 	const [tempNameFilter, setTempNameFilter] = useState('');
@@ -130,7 +125,7 @@ function Posts() {
 					value={tempNameFilter}
 					onChange={handleNameChange}
 				/>
-				<button type="button" className="search-button" onClick={handleNameSearch}>
+				<button type="button" className="search-button sans-serif" onClick={handleNameSearch}>
 					<i className="fa-solid fa-filter" /> Title
 				</button>
 			</div>
@@ -142,11 +137,11 @@ function Posts() {
 					value={tempTagFilter}
 					onChange={handleTagChange}
 				/>
-				<button type="button" className="search-button" onClick={handleTagSearch}>
+				<button type="button" className="search-button sans-serif" onClick={handleTagSearch}>
 					<i className="fa-solid fa-filter" /> Tags
 				</button>
 			</div>
-			<button type="button" className="clear-button search-container" onClick={handleTagSearch}>
+			<button type="button" className="clear-button search-container sans-serif" onClick={handleTagSearch}>
 				Clear All Filters
 			</button>
 		</div>
@@ -164,17 +159,17 @@ function Posts() {
 						<TabList
 							onChange={handleTabChange}
 							aria-label="recipe tabs"
-							// textColor="#B6916C"
-							// indicatorColor="success"
 							sx={{
 								'& .MuiTabs-indicator': {
 									backgroundColor: 'success.main', // Assumes 'success' is a color defined in your theme
 								},
 								'& .MuiTab-root': {
 									color: '#B6916C', // Custom color for all tab labels
+									fontFamily: 'Cormorant Garamond, serif',
 								},
 								'& .MuiTab-root.Mui-selected': {
 									color: 'success.main', // Custom color for the selected tab label
+									fontFamily: 'Cormorant Garamond, serif',
 								},
 							}}
 						>
@@ -194,13 +189,8 @@ function Posts() {
 			<h1>Recipes</h1>
 			{search()}
 			{tabs()}
-			{/* <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 1000: 3 }}>
-				<Masonry className="posts-container">
-					{postItems}
-				</Masonry>
-			</ResponsiveMasonry> */}
 		</div>
 	);
 }
 
-export default Posts;
+export default Recipes;
