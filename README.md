@@ -1,15 +1,6 @@
-# Animal Life Posts
+# Recipe Client
 
-*A redux frontend platform of animal posts*
+## Overview
 
-[https://animal-posts.onrender.com](https://animal-posts.onrender.com)
-
-## What Worked Well
-I was able to understand the data flow and implement it relatively easily. For some of the API calls, I sometimes had to do multiple on certain actions (delete, add, update) so that there isn't a half a second period of time where the deleted post/not-yet added post/before updated post shows up on the main posts page.
-
-## What Didn't
-
-## Extra Credit
-I used a react library called Masonry that tiles the posts so that the posts below it rises up to fill the gaps. I also styled the buttons and icons. I was proud of having the add button rotate and stay there if the user is on the create post page.
-
-## Screenshots
+## Things to note
+As I mentioned in the API readme, I found that with the free version of Render, it delays api requests if I don't use it for a while (this was the note on the render site: Your free instance will spin down with inactivity, which can delay requests by 50 seconds or more.) Thus, when you first use this site, it might not seem to work properly, but you just have to wait a minute for the first recipe.

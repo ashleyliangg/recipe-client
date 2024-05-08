@@ -15,13 +15,18 @@ body, html {
 // }
 
 body {
-	background-image: url("img/nature.jpg");
+	background-image: url("img/backdrop.jpg");
+	background-size: cover;
+  background-position: center;
+	background-attachment: fixed;
 }
 
 h1 {
 	text-align: center;
-	font-family: 'Bubblegum Sans', cursive;
+	font-family: "Cormorant Garamond", serif;
+	font-weight: 100;
 	font-size: 3rem;
+	color: rgb(74, 44, 37)
 }
 
 .tags {
@@ -29,12 +34,48 @@ h1 {
 	font-family: 'Cutive Mono', monospace;
 }
 
+.landing-page-container {
+	background-image: url("img/kitchen.jpg");
+	position: fixed;   /* Positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled */
+  top: 0;            /* 0px from the top */
+  left: 0;           /* 0px from the left */
+  width: 100vw;      /* 100% of the viewport width */
+  height: 100vh;
+	// width: 100%;
+	background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container {
+	display: flex;
+}
+
+.button {
+	padding: 2rem 4rem;
+  margin: 10px 10px;
+	font-family: "Oswald", sans-serif;
+	font-weight: 100;
+  font-size: 25px;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  &:hover {
+    background-color: #e7e7e7;
+  }
+}
+
 nav {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	background-color: rgb(182, 145, 108);
+	background-color: rgb(189, 167, 145);
 	height: 70px;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
@@ -67,7 +108,9 @@ ul {
 }
 
 .create-button {
-	font-family: 'Bubblegum Sans', cursive;
+	// font-family: 'Cormorant Garamond', cursive;
+	font-family: "Cormorant Garamond", serif;
+  // font-weight: 600;
 
 	.add-icon {
 		transition: transform 0.5s ease;
@@ -105,7 +148,8 @@ ul {
 	flex-direction: column;
 	align-items: center;
 	// background-color: rgb(220, 244, 203);
-	background-image: linear-gradient(to right, rgb(158, 194, 130), rgb(252, 252, 252), rgb(158, 194, 130));
+	background-color: #a5e1a0b3;
+	// linear-gradient(to right, rgb(158, 194, 130), rgb(252, 252, 252), rgb(158, 194, 130));
 	margin: 10px;
 	border-radius: 5px;
 	padding: 1rem;
@@ -242,4 +286,55 @@ i {
 .input-names {
 	font-size: 1.5rem;
 	font-family: 'Bubblegum Sans', cursive;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.search-input {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  border-right: none; // Ensures there's no double border between input and button
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(189, 167, 145);
+  color: white;
+  border: 2px solid rgb(189, 167, 145);
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: rgb(182, 145, 108);
+}
+
+.clear-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(189, 167, 145);
+  color: white;
+  border: 2px solid rgb(189, 167, 145);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  background-color: rgb(182, 145, 108);
+}
+
+.animated-title {
+	font-size: 5rem;
+	display: 'inline-block';
+	font-family: "Cormorant Garamond", serif;
+	font-weight: 600;
 }

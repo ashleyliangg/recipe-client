@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const ROOT_URL = 'https://notes-app-api-vtyb.onrender.com/api';
-// const ROOT_URL = 'http://localhost:9090/api';
+const ROOT_URL = 'https://recipe-api-knja.onrender.com/api';
 const API_KEY = '?key=l_liang';
 
 // keys for actiontypes
@@ -11,6 +10,21 @@ export const ActionTypes = {
 };
 
 export function fetchPosts() {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`${ROOT_URL}/posts${API_KEY}`);
+      dispatch({
+        type: ActionTypes.FETCH_POSTS,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(`fetch posts api error: ${error}`);
+      throw error;
+    }
+  };
+}
+
+export function fetchFavoritePosts() {
   return async (dispatch) => {
     try {
       const response = await axios.get(`${ROOT_URL}/posts${API_KEY}`);
@@ -52,9 +66,9 @@ export function createPost(post, navigate) {
         payload: response.data,
       });
       // then navigate!!
-      navigate('/');
+      navigate('/posts/');
     } catch (error) {
-      dispatch(new Error(`failed to udpate post: ${error}`));
+      dispatch(new Error(`failed to create post: ${error}`));
     }
   };
 }
@@ -91,7 +105,7 @@ export function deletePost(id, navigate) {
         type: ActionTypes.FETCH_POSTS,
         payload: response.data,
       });
-      navigate('/');
+      navigate('/posts/');
     } catch (error) {
       console.log(`delete post api error: ${error}`);
       throw error;

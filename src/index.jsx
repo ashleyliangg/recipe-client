@@ -8,12 +8,12 @@ import App from './components/app';
 
 // this creates the store with the reducers
 const store = configureStore({
-  reducer: rootReducer,
+	reducer: rootReducer,
 });
 
 const root = createRoot(document.getElementById('main'));
 root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+	<Provider store={store}>
+		<App />
+	</Provider>,
 );

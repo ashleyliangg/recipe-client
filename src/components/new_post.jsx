@@ -40,13 +40,13 @@ function NewPost() {
 
   return (
     <div className="new-post">
-      <i onClick={() => navigate('/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left icon-button" />
+      <i onClick={() => navigate('/posts/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left icon-button" />
       <div className="new-post-header">
         <h1>Create a New Post</h1>
       </div>
 
       <div className="new-post-form">
-        <i onClick={() => navigate('/')} role="button" tabIndex="0" aria-label="delete" className="fa-solid fa-trash-can trash icon-button" />
+        <i onClick={() => navigate('/posts/')} role="button" tabIndex="0" aria-label="delete" className="fa-solid fa-trash-can trash icon-button" />
         <p className="input-names">
           Title
         </p>

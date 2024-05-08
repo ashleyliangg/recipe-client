@@ -18,6 +18,7 @@ function PostItem() {
   const [localTags, setLocalTags] = useState('');
   const [localImgURL, setLocalImgURL] = useState('');
   const [localContent, setLocalContent] = useState('');
+	const [localFavorite, setLocalFavorite] = useState(post.favorite);
 
   const onTitleChange = (event) => {
     setLocalTitle(event.target.value);
@@ -62,7 +63,9 @@ function PostItem() {
       tags: localTags,
       content: localContent,
       coverUrl: localImgURL,
+			favorite: localFavorite,
     };
+		console.log(updated);
     await dispatch(updatePost(updated, postID));
     setEditing(!isEditing);
   };
@@ -70,6 +73,20 @@ function PostItem() {
   const deleteP = async () => {
     dispatch(deletePost(postID, navigate));
   };
+
+	const favoritePost = async () => {
+		setLocalFavorite(!localFavorite);
+		console.log(post);
+		const updatedRecipe = {
+			title: post.title,
+      tags: post.tags.join(' '),
+      content: post.content,
+      coverUrl: post.coverUrl,
+			favorite: !post.favorite,
+		};
+		console.log(updatedRecipe);
+		await dispatch(updatePost(updatedRecipe, postID));
+	};
 
   function postTags() {
     if (loadedState) {
@@ -95,13 +112,12 @@ function PostItem() {
       return (
         <div>
           <div className="top-icons">
-            <i onClick={() => navigate('/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left back-button" />
+            <i onClick={() => navigate('/posts/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left back-button" />
+						<i onClick={favoritePost} role="button" tabIndex="0" className="fa fa-star" aria-label="favorite" style={{ color: localFavorite ? '#FDDA0D' : '#D3D3D3' }} />
             <i onClick={deleteP} role="button" tabIndex="0" aria-label="delete" className="fa-solid fa-trash-can trash icon-button" />
-            {/* <i onClick={() => setEditing(!isEditing)} role="button" tabIndex="0" aria-label="edit" className="fa-solid fa-pencil" /> */}
           </div>
           <div className="post-item">
             <h1>{post.title}</h1>
-            {/* <p className="tags">{post.tags}</p> */}
             <div className="posts-tags">
               {postTags()}
             </div>
@@ -117,7 +133,8 @@ function PostItem() {
       return (
         <div>
           <div className="top-icons">
-            <i onClick={() => navigate('/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left back-button" />
+            <i onClick={() => navigate('/posts/')} role="button" tabIndex="0" aria-label="back" className="fa-solid fa-circle-arrow-left back-button" />
+						<i onClick={favoritePost} role="button" tabIndex="0" className="fa fa-star" aria-label="favorite" style={{ color: localFavorite ? '#FDDA0D' : '#D3D3D3' }} />
             <i onClick={update} role="button" tabIndex="0" aria-label="edit" className="fa-solid fa-circle-check" />
           </div>
           <div className="post-item">

@@ -31,6 +31,11 @@
     "vite-plugin-eslint": "^1.8.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.16",
+    "@mui/lab": "^5.0.0-alpha.170",
+    "@mui/material": "^5.15.16",
     "@reduxjs/toolkit": "^1.9.5",
     "@vitejs/plugin-react": "^3.1.0",
     "axios": "^1.4.0",
@@ -44,6 +49,7 @@
     "react-redux": "^8.0.5",
     "react-responsive-masonry": "^2.1.7",
     "react-router": "^6.10.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.10.0",
+    "react-type-animation": "^3.2.0"
   }
 }
