@@ -14,7 +14,10 @@ As I mentioned in the API readme, I found that with the free version of Render, 
 
 ## Screenshots
 <img width="1436" alt="image" src="https://github.com/ashleyliangg/recipe-client/assets/102703391/e4608899-758f-47a6-9908-cc4ccfd141a4">
+
+## Screen recording
 https://github.com/ashleyliangg/recipe-client/assets/102703391/b9d0628f-d670-462c-9512-093d99fe97e4
+![screencapture-localhost-5173-posts-new-2024-05-07-23_14_31 (1)](https://github.com/ashleyliangg/recipe-client/assets/102703391/07258f30-7584-47d5-92e5-b1c53f08ab10)
 
 
 
